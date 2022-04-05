@@ -1,14 +1,16 @@
 <script setup>
-import { ref } from 'vue'
 
+import { ref } from 'vue'
+import { sayHello } from '../api/hello'
 
 const count = ref(0)
 const message = ref("music box")
 
 const hi = () => {
-  message.value = "已请求"
+  sayHello().then(res => {
+    message.value = res.data
+  })
 }
-
 
 </script>
 
